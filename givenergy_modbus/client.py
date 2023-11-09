@@ -400,7 +400,10 @@ class GivEnergyClient:
 
     def set_battery_pause_mode(self, val: int):
         """Set the forbid flag for charge/discharge."""
-        # TODO what are valid values?
+        # 0 = not paused
+        # 1 = pause charge
+        # 2 = pause discharge
+        # 3 = pause both
         if val in [0,1,2,3]:
             self.modbus_client.write_holding_register(HoldingRegister.BATTERY_PAUSE_MODE, val)
         else:
